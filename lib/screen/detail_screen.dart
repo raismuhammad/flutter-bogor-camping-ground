@@ -127,13 +127,16 @@ class CampDetail extends StatelessWidget {
                         },
                         child: Container(
                           margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                          height: 100,
+                          height: 200,
                           width: double.infinity,
                           decoration: BoxDecoration(
                               color: Colors.red,
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
-                          child: MapScreen(),
+                          child: MapScreen(
+                            latitude: dataCamp.latitude,
+                            longitude: dataCamp.longitude,
+                          ),
                         ),
                       )
                     ]),
@@ -166,7 +169,7 @@ class CampDetail extends StatelessWidget {
                   child: ElevatedButton(
                     child: Text('Booking Now / Open Whatsapp'),
                     style: ElevatedButton.styleFrom(minimumSize: Size(350, 50)),
-                    onPressed: () {},
+                    onPressed: null,
                   ))
             ],
           ),
@@ -195,25 +198,32 @@ class CampDetail extends StatelessWidget {
 }
 
 class MapScreen extends StatefulWidget {
-  const MapScreen({ Key? key }) : super(key: key);
+  final double latitude;
+  final double longitude;
+
+  const MapScreen({Key? key, required this.latitude, required this.longitude})
+      : super(key: key);
 
   @override
   _MapScreenState createState() => _MapScreenState();
 }
 
 class _MapScreenState extends State<MapScreen> {
-  static const _initialCameraPosition = CameraPosition(
-    target: LatLng(-6.5993271, 106.7953904),
-    zoom: 11.5,
-  );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GoogleMap(
         myLocationButtonEnabled: false,
         zoomControlsEnabled: false,
-        initialCameraPosition: _initialCameraPosition,
+        initialCameraPosition: CameraPosition(
+          target: LatLng(widget.latitude, widget.longitude),
+          zoom: 11.5,
+        ),
+        markers: <Marker>{
+          Marker(
+              position: LatLng(widget.latitude, widget.longitude),
+              markerId: MarkerId("Marker_1"))
+        },
       ),
     );
   }
