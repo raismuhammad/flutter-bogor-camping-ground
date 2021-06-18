@@ -1,6 +1,6 @@
 # bogor_camping_ground
 
-aplikasi bogor camping ground adalah aplikasi informasi camping ground daerah bogor menggunakan RESTful API
+aplikasi bogor camping ground adalah aplikasi informasi camping ground daerah bogor
 
 ## Build With
 - Flutter 2.2.0
