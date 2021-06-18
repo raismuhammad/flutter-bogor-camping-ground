@@ -1,6 +1,6 @@
 # bogor_camping_ground
 
-A new Flutter project.
+aplikasi bogor camping ground adalah aplikasi informasi camping ground daerah bogor dibuat menggunakan flutter 2.2.0 dan dart 2.13.0
 
 ## Getting Started
 
