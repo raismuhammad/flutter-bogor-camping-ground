@@ -1,6 +1,6 @@
-# bogor_camping_ground
+# Bogor Camping Ground
 
-aplikasi bogor camping ground adalah aplikasi informasi camping ground daerah bogor
+Aplikasi bogor camping ground adalah aplikasi informasi camping ground daerah bogor
 
 ## Build With
 - Flutter 2.2.0
